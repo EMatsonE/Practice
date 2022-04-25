@@ -15,19 +15,29 @@ namespace Practice
             do
             {
                 Begin(name);
-                Console.WriteLine("Would you like to go again?");
-                string redo = Console.ReadLine();
-                if (redo == "yes")
-                {
-                    repeat = true;
-                }
-                else
-                {
-                    repeat = false;
-                    Environment.Exit(0);
-                }
+                Repeat(repeat);
             }
             while (repeat == true);
+        }
+        static void Repeat(bool repeat)
+        {
+            Console.WriteLine("Would you like to go again?");
+            string redo = Console.ReadLine();
+            if (redo.ToLower() == "yes" || redo.ToLower() == "y")
+            {
+                repeat = true;
+            }
+            else if (redo.ToLower() == "no" || redo.ToLower() == "n")
+            {
+                repeat = false;
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.WriteLine("Invalid answer");
+                Repeat(repeat);
+                return;
+            }
         }
         static string Greeting()
         {
@@ -70,15 +80,15 @@ namespace Practice
         {
             if (input < 25)
             {
-                Console.Write(" and under 25");
+                Console.WriteLine("It is under 25");
             }
             if (input < 60 && input > 26)
             {
-                Console.WriteLine(" and it is between 25 and 60");
+                Console.WriteLine("It is between 25 and 60");
             }
             if (input > 60)
             {
-                Console.WriteLine(" and it is bigger than 60");
+                Console.WriteLine("It is bigger than 60");
             }
         }
     }
