@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Practice
 {
-    class Lab2
+    public class Lab2
     {
         public static void EvenOdd100s()
         {
@@ -43,22 +43,33 @@ namespace Practice
         {
             Console.WriteLine("Hello! What is your name?");
             string name = Console.ReadLine();
-            return name;
+            
+            if (name == "" || name == null)
+            {
+                Console.WriteLine("I'm sorry your answer is blank");
+                Greeting();
+            }
+                return name;
         }
         static void Begin(string name)
         {
             Console.WriteLine($"Please enter a number {name}");
             float input = float.Parse(Console.ReadLine());
-
             GoThrough(input, name);
         }
         static void GoThrough(float input, string name)
-        {
-            if (input < 1 || input > 100)
+        { 
+            if(input.ToString() == "")
+            {
+                Console.WriteLine("That was blank please try again");
+                Begin(name);
+            }
+            else if (input < 1 || input > 100)
             {
                 Console.WriteLine("Please put valid input");
                 Begin(name);
             }
+
             else
             {
                 EvenOdds(input);

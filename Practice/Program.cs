@@ -10,7 +10,7 @@ namespace Practice
     {
         static void Main(string[] args)
         {
-            Lab2.EvenOdd100s();
+            Lab4.TableOfPowers();
         }
 
     }
